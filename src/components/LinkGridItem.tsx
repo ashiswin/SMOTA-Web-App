@@ -31,7 +31,7 @@ const styles = {
     justifyContent: "center",
     border: "0.005vw solid #a98274",
     color: "white",
-    cursor: "pointer",
+    cursor: "pointer"
   }
 };
 

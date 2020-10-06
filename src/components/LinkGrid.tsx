@@ -1,5 +1,5 @@
 import React from "react";
-import { Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { DummyLinks } from "../dummy/DummyHomeScreenLinkProvider";
 import LinkGridItem from "./LinkGridItem";
 
@@ -13,21 +13,21 @@ const LinkGrid: React.FC = () => {
 
     let links = linkPairs.map((pair) => {
         return(
-            <>
+            <Row>
                 <LinkGridItem title={pair[0].title} url={pair[0].url} icon={pair[0].iconName}/>
                 {
                     pair.length > 1
                         ? <LinkGridItem  title={pair[1].title} url={pair[1].url} icon={pair[1].iconName}/>
                         : null
                 }
-            </>
+            </Row>
         );
       })
     
     return(
-        <Row>
-            {links}
-        </Row>
+        <Container fluid style={{padding: 0}}>
+          {links}
+        </Container>
     );
 }
 
