@@ -1,7 +1,16 @@
 import React from "react";
+import smota_large from "../assets/img/smota-jumbotron.jpg";
 
 const HomeScreen: React.FC = () => (
-  <h1>Welcome to your PWA!</h1>
+    <div>
+        <img src={smota_large} style={styles.image} alt="St Mary of the Angels Singapore" />
+    </div>
 );
+
+const styles = {
+    image: {
+        width: "100%"
+    }
+}
 
 export default HomeScreen;
