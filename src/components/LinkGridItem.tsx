@@ -9,11 +9,15 @@ interface Props {
   icon: IconDefinition
 }
 
+function handleClick(url: string) {
+  window.open(url);
+}
+
 const LinkGridItem: React.FC<Props> = ({title, url, icon}) => (
-      <Col xs={6} style={styles.link}>
+      <Col xs={6} style={styles.link} onClick={() => handleClick(url)}>
         <Row>
           <Col xs={2}><FontAwesomeIcon icon={icon} /></Col>
-          <Col><a href={url}>{title}</a></Col>
+          <Col><span>{title}</span></Col>
         </Row>
       </Col>
 )
@@ -21,11 +25,14 @@ const LinkGridItem: React.FC<Props> = ({title, url, icon}) => (
 const styles = {
   link: {
     height: "10vh",
-    backgroundColor: "#CCCCCC",
+    backgroundColor: "#795548",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-  },
+    border: "0.005vw solid #a98274",
+    color: "white",
+    cursor: "pointer",
+  }
 };
 
 export default LinkGridItem;
