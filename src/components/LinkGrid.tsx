@@ -13,7 +13,7 @@ const LinkGrid: React.FC = () => {
 
     let links = linkPairs.map((pair) => {
         return(
-            <Row>
+            <Row style={{margin: 0}}>
                 <LinkGridItem title={pair[0].title} url={pair[0].url} icon={pair[0].iconName}/>
                 {
                     pair.length > 1
