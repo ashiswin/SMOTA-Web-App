@@ -1,4 +1,3 @@
-import { Icon } from "@fortawesome/fontawesome-svg-core";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "../dummy/DummyHomeScreenLinkProvider";
@@ -32,10 +31,10 @@ const LinkGrid: React.FC<Props> = ({header, links}) => {
       })
     
     return(
-        <Container fluid style={{padding: 0}}>
+        <Container fluid style={{padding: 0, marginBottom: 8}}>
+          <h2>{header}</h2>
           <Row style={{margin: 0}}>
             <Col xs={12}>
-            <h2>{header}</h2>
             </Col>
           </Row>
           {linkComponents}
