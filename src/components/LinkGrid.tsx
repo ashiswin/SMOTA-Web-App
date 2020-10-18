@@ -19,26 +19,26 @@ const LinkGrid: React.FC<Props> = ({header, links}) => {
 
     let linkComponents = linkPairs.map((pair) => {
         return(
-            <Row style={{margin: 0}}>
-                <LinkGridItem title={pair[0].title} url={pair[0].url} icon={pair[0].iconName}/>
-                {
-                    pair.length > 1
-                      ? <LinkGridItem  title={pair[1].title} url={pair[1].url} icon={pair[1].iconName}/>
-                      : null
-                }
-            </Row>
+          <Row style={{margin: 0}}>
+              <LinkGridItem title={pair[0].title} url={pair[0].url} icon={pair[0].iconName}/>
+              {
+                pair.length > 1
+                  ? <LinkGridItem  title={pair[1].title} url={pair[1].url} icon={pair[1].iconName}/>
+                  : null
+              }
+          </Row>
         );
       })
     
     return(
-        <Container fluid style={{padding: 0, marginBottom: 8}}>
-          <h2>{header}</h2>
-          <Row style={{margin: 0}}>
-            <Col xs={12}>
-            </Col>
-          </Row>
-          {linkComponents}
-        </Container>
+      <Container fluid style={{padding: 0, marginBottom: 8}}>
+        <Row style={{margin: 0}}>
+          <Col xs={12}>
+            <h2>{header}</h2>
+          </Col>
+        </Row>
+        {linkComponents}
+      </Container>
     );
 }
 

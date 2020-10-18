@@ -1,5 +1,5 @@
 import { Icon, icon } from '@fortawesome/fontawesome-svg-core';
-import { faQrcode, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faQrcode, faBook, faChurch, faDove, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
 export interface Link {
@@ -36,5 +36,26 @@ export const DummyLinks: {[index: string]: Link[]} = {
       url: 'http://www.usccb.org/bible/readings',
     },
   ],
-  "Sacraments": [],
+  "Sacraments": [
+    {
+      iconName: icon(faChurch),
+      title: 'Infant Baptism',
+      url: 'https://www.stmary.sg/web/index.php/pastoral-services/infant-and-children-baptism',
+    },
+    {
+      iconName: icon(faChurch),
+      title: 'Adult Baptism',
+      url: 'https://www.stmary.sg/web/index.php/pastoral-services/adult-baptism',
+    },
+    {
+      iconName: icon(faDove),
+      title: 'Confirmation',
+      url: 'https://www.stmary.sg/web/index.php/pastoral-services/confirmation',
+    },
+    {
+      iconName: icon(faHeart),
+      title: 'Holy Matrimony',
+      url: 'http://www.stmary.sg/web/index.php/pastoral-services/holy-matrimony',
+    },
+  ],
 };
