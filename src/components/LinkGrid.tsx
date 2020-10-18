@@ -32,10 +32,10 @@ const LinkGrid: React.FC<Props> = ({header, links}) => {
       })
     
     return(
+            <h2>{header}</h2>
         <Container fluid style={{padding: 0, marginBottom: 8}}>
           <Row style={{margin: 0}}>
             <Col xs={12}>
-            <h2>{header}</h2>
             </Col>
           </Row>
           {linkComponents}
