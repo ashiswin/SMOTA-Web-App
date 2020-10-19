@@ -1,5 +1,5 @@
 import { Icon, icon } from '@fortawesome/fontawesome-svg-core';
-import { faQrcode, faBook, faChurch, faDove, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faQrcode, faBook, faChurch, faHeart, faFire } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
 export interface Link {
@@ -48,7 +48,7 @@ export const DummyLinks: {[index: string]: Link[]} = {
       url: 'https://www.stmary.sg/web/index.php/pastoral-services/adult-baptism',
     },
     {
-      iconName: icon(faDove),
+      iconName: icon(faFire),
       title: 'Confirmation',
       url: 'https://www.stmary.sg/web/index.php/pastoral-services/confirmation',
     },
