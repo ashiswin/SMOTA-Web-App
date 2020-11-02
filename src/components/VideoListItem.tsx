@@ -19,7 +19,6 @@ const VideoListItem: React.FC<Props> = ({ video_id }) => {
 
   useEffect(() => {
     const requestURL = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${video_id}&key=${API_KEY}`;
-    console.log(requestURL);
     axios.get(requestURL)
       .then(res => {
         const response = res.data.items[0].snippet;
