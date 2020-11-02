@@ -55,12 +55,12 @@ export const DummyLinks: {[index: string]: Link[]} = {
     {
       iconName: icon(faHeart),
       title: 'Holy Matrimony',
-      url: 'http://www.stmary.sg/web/index.php/pastoral-services/holy-matrimony',
+      url: 'https://www.stmary.sg/web/index.php/pastoral-services/holy-matrimony',
     },
     {
       iconName: icon(faCross),
       title: 'Anointing of the Sick',
-      url: 'http://www.stmary.sg/web/index.php/pastoral-services/anointing-home-communion',
+      url: 'https://www.stmary.sg/web/index.php/pastoral-services/anointing-home-communion',
     },
     {
       iconName: icon(faPrayingHands),

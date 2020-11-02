@@ -16,7 +16,7 @@ function handleClick(url: string) {
 const LinkGridItem: React.FC<Props> = ({title, url, icon}) => (
       <Col xs={6} style={styles.link} onClick={() => handleClick(url)}>
         <Row>
-          <Col xs={2}><FontAwesomeIcon icon={icon} /></Col>
+          <Col xs={2}><FontAwesomeIcon icon={icon} style={{position: 'absolute', top: '30%'}} /></Col>
           <Col><span>{title}</span></Col>
         </Row>
       </Col>
