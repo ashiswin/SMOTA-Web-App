@@ -3,8 +3,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import MassVideoListScreen from './screens/MassVideoListScreen';
-import { Dropdown } from 'react-materialize';
+const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 
@@ -45,8 +44,8 @@ const App = () => {
                   <a className="collapsible-header">Online Content<i className="material-icons">arrow_drop_down</i></a>
                   <div className="collapsible-body">
                     <ul>
-                    <li><Link to="/holy-mass"><i className="material-icons">play_circle_filled</i> Holy Mass</Link></li>
-                    <li><Link to="/daily-liturgy"><i className="material-icons">play_circle_filled</i> Daily Liturgy</Link></li>
+                    <li><Link to="/holy-mass" className="sidenav-close" ><i className="material-icons">play_circle_filled</i> Holy Mass</Link></li>
+                    <li><Link to="/daily-liturgy" className="sidenav-close" ><i className="material-icons">play_circle_filled</i> Daily Liturgy</Link></li>
                     </ul>
                   </div>
                 </li>
@@ -58,11 +57,15 @@ const App = () => {
           <Route path="/about">
             <AboutScreen />
           </Route>
+          <Route path="/holy-mass">
+            <MassVideoListScreen isSundayMass={true} />
+          </Route>
+          <Route path="/daily-liturgy">
+            <MassVideoListScreen isSundayMass={false} />
+          </Route>
           <Route path="/">
             <HomeScreen />
           </Route>
-          <Route path="/holy-mass" render={() => <MassVideoListScreen isSundayMass={true} />} />
-          <Route path="/daily-liturgy" render={() => <MassVideoListScreen isSundayMass={false} />} />
         </Switch>
       </Suspense>
     </Router>
