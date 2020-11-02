@@ -34,7 +34,7 @@ const LinkGrid: React.FC<Props> = ({header, links}) => {
       <div>
         <Row style={{margin: 0}}>
           <Col s={12}>
-            <h3>{header}</h3>
+            <h4>{header}</h4>
           </Col>
         </Row>
         {linkComponents}
