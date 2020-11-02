@@ -14,7 +14,7 @@ const HomeScreen: React.FC = () => {
   return(
     <>
       <Row>
-        <div style={{marginBottom: 8, height: 180}}>
+        <div style={{marginBottom: 8, height: 160}}>
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
