@@ -3,7 +3,6 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { SideNav, Button, SideNavItem, Navbar, NavItem, Icon } from "react-materialize";
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 
