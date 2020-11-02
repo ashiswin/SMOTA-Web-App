@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Col, Row } from "react-materialize";
+import { Container } from "react-materialize";
 import VideoListItem from "../components/VideoListItem";
 
 interface Props {
