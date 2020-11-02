@@ -15,7 +15,8 @@ function handleClick(url: string) {
 
 const LinkGridItem: React.FC<Props> = ({ title, url, icon }) => (
   <Col s={6} style={{ padding: '0' }}>
-    <a 
+    <a
+      href="#!"
       className="waves-effect waves-light btn" 
       style={styles.link} 
       onClick={() => handleClick(url)}>
