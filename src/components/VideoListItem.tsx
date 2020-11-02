@@ -27,7 +27,7 @@ const VideoListItem: React.FC<Props> = ({ video_id }) => {
         setTitle(titleParts[1]);
         setDate(titleParts[2]);
         setDescription(response.description);
-        setThumbnail(response.thumbnails.medium.url);
+        setThumbnail(response.thumbnails.maxres.url);
       })
   });
 
