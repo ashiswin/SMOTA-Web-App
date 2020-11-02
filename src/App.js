@@ -3,6 +3,8 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import MassVideoListScreen from './screens/MassVideoListScreen';
+import { Dropdown } from 'react-materialize';
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 
@@ -10,6 +12,7 @@ const App = () => {
   useEffect(() => {
     let sidenav = document.querySelector('#slide-out');
     M.Sidenav.init(sidenav, {});
+    M.AutoInit();
   });
 
   return (
@@ -36,6 +39,19 @@ const App = () => {
             </li> */}
             <li><Link to="/" className="sidenav-close"><i className="material-icons">home</i> Home</Link></li>
             <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
+            <li className="no-padding">
+              <ul className="collapsible collapsible-accordion">
+                <li>
+                  <a className="collapsible-header">Online Content<i className="material-icons">arrow_drop_down</i></a>
+                  <div className="collapsible-body">
+                    <ul>
+                    <li><Link to="/holy-mass"><i className="material-icons">play_circle_filled</i> Holy Mass</Link></li>
+                    <li><Link to="/daily-liturgy"><i className="material-icons">play_circle_filled</i> Daily Liturgy</Link></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
         <Switch>
@@ -45,6 +61,8 @@ const App = () => {
           <Route path="/">
             <HomeScreen />
           </Route>
+          <Route path="/holy-mass" render={() => <MassVideoListScreen isSundayMass={true} />} />
+          <Route path="/daily-liturgy" render={() => <MassVideoListScreen isSundayMass={false} />} />
         </Switch>
       </Suspense>
     </Router>
