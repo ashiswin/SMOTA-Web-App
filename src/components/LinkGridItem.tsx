@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Button } from "react-materialize";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,11 +14,8 @@ function handleClick(url: string) {
 }
 
 const LinkGridItem: React.FC<Props> = ({title, url, icon}) => (
-      <Col xs={6} style={styles.link} onClick={() => handleClick(url)}>
-        <Row>
-          <Col xs={2}><FontAwesomeIcon icon={icon} /></Col>
-          <Col><span>{title}</span></Col>
-        </Row>
+      <Col s={6} style={{padding: '0'}}>
+        <a className="waves-effect waves-light btn"><FontAwesomeIcon icon={icon} /><span>{title}</span></a>
       </Col>
 )
 
@@ -31,7 +28,8 @@ const styles = {
     justifyContent: "center",
     border: "0.005vw solid #a98274",
     color: "white",
-    cursor: "pointer"
+    cursor: "pointer",
+    width: '100%',
   }
 };
 
