@@ -34,8 +34,8 @@ const App = () => {
                 }}
               />
             </li> */}
-            <li><Link to="/"><i className="material-icons">home</i> Home</Link></li>
-            <li><Link to="/about"><i className="material-icons">info</i> About</Link></li>
+            <li><Link to="/" className="sidenav-close"><i className="material-icons">home</i> Home</Link></li>
+            <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
           </ul>
         </div>
         <Switch>
