@@ -1,5 +1,5 @@
 import { Icon, icon } from '@fortawesome/fontawesome-svg-core';
-import { faQrcode, faBook, faChurch, faHeart, faFire } from '@fortawesome/free-solid-svg-icons';
+import { faQrcode, faBook, faChurch, faHeart, faFire, faCross, faPrayingHands } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
 export interface Link {
@@ -57,5 +57,15 @@ export const DummyLinks: {[index: string]: Link[]} = {
       title: 'Holy Matrimony',
       url: 'http://www.stmary.sg/web/index.php/pastoral-services/holy-matrimony',
     },
+    {
+      iconName: icon(faCross),
+      title: 'Anointing of the Sick',
+      url: 'http://www.stmary.sg/web/index.php/pastoral-services/anointing-home-communion',
+    },
+    {
+      iconName: icon(faPrayingHands),
+      title: 'Reconciliation',
+      url: ''
+    }
   ],
 };
