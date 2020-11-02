@@ -11,7 +11,7 @@ const AboutScreen: React.FC = () => (
     </Row>
     <Row>
       <Col s={12}>
-        <h3>CHURCH OF ST MARY OF THE ANGELS</h3>
+        <h5>CHURCH OF ST MARY OF THE ANGELS</h5>
       </Col>
     </Row>
     <a href="http://maps.google.com/?q=Saint Mary of the Angels Singapore">5 Bukit Batok East Ave 2, Singapore 659918</a>

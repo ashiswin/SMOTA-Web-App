@@ -27,7 +27,7 @@ const LinkGridItem: React.FC<Props> = ({ title, url, icon }) => (
 
 const styles = {
   link: {
-    height: "10vh",
+    height: 64,
     backgroundColor: "var(--primary)",
     display: "flex",
     alignItems: "center",
