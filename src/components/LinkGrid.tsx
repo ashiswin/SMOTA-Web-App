@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-materialize";
 import { Link } from "../dummy/DummyHomeScreenLinkProvider";
 import LinkGridItem from "./LinkGridItem";
 
@@ -31,14 +31,14 @@ const LinkGrid: React.FC<Props> = ({header, links}) => {
       })
     
     return(
-      <Container fluid style={{padding: 0, marginBottom: 8}}>
+      <div>
         <Row style={{margin: 0}}>
-          <Col xs={12}>
-            <h2>{header}</h2>
+          <Col s={12}>
+            <h3>{header}</h3>
           </Col>
         </Row>
         {linkComponents}
-      </Container>
+      </div>
     );
 }
 

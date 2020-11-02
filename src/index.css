@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 
+:root {
+  --primary: #795548;
+  --primary-light: #D7CCC8;
+  --primary-dark: #5D4037;
+  --accent: #448AFF;
+  --primary-text: #212121;
+  --secondary-text: #757575;
+  --divider: #BDBDBD;
+  --icons: #FFFFFF;
+}
+
 body {
   margin: 0;
   font-family: 'Mulish', sans-serif;
@@ -14,4 +25,9 @@ code {
 
 h2, h3 {
   font-family: 'Montserrat',arial,sans-serif;
+}
+
+.brand-logo {
+  font-size: 1.2rem !important;
+  font-family: 'Montserrat';
 }

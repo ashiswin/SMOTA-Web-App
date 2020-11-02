@@ -6,32 +6,36 @@ import LinkGrid from "../components/LinkGrid";
 import { DummyCategories, DummyLinks } from "../dummy/DummyHomeScreenLinkProvider";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { Row } from "react-materialize";
 
 const HomeScreen: React.FC = () => {
   let gridComponents = DummyCategories.map((category) => 
     <LinkGrid links={DummyLinks[category]} header={category} />);
   return(
     <>
-      <div style={{marginBottom: 8}}>
-        <Carousel
-          autoPlay={true}
-          infiniteLoop={true}
-          interval={5000}
-          showArrows={false}
-          showThumbs={false}
-          showIndicators={false}
-          showStatus={false}>
-          <div>
-            <img src={smota_jubotron_1} style={styles.image} alt="St Mary of the Angels Singapore" />
-          </div>
-          <div>
-            <img src={smota_jubotron_2} style={styles.image} alt="St Mary of the Angels Singapore" />
-          </div>
-          <div>
-            <img src={smota_jubotron_3} style={styles.image} alt="St Mary of the Angels Singapore" />
-          </div>
-        </Carousel>
-      </div>
+      <Row>
+        <div style={{marginBottom: 8, height: 160}}>
+          <Carousel
+            autoPlay={true}
+            infiniteLoop={true}
+            interval={5000}
+            showArrows={false}
+            showThumbs={false}
+            showIndicators={false}
+            showStatus={false}
+            dynamicHeight={true}>
+            <div>
+              <img src={smota_jubotron_1} style={styles.image} alt="St Mary of the Angels Singapore" />
+            </div>
+            <div>
+              <img src={smota_jubotron_2} style={styles.image} alt="St Mary of the Angels Singapore" />
+            </div>
+            <div>
+              <img src={smota_jubotron_3} style={styles.image} alt="St Mary of the Angels Singapore" />
+            </div>
+          </Carousel>
+        </div>
+      </Row>
       {gridComponents}
     </>
   );

@@ -1,16 +1,16 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-materialize";
 import smota_logo from "../assets/img/smota-logo.png";
 
 const AboutScreen: React.FC = () => (
   <Container style={{textAlign: "center"}}>
     <Row style={{paddingTop: 16, paddingBottom: 16}}>
-      <Col sm={12}>
+      <Col s={12}>
         <img src={smota_logo} alt="St Mary of the Angels Singapore" />
       </Col>
     </Row>
     <Row>
-      <Col sm={12}>
+      <Col s={12}>
         <h3>CHURCH OF ST MARY OF THE ANGELS</h3>
       </Col>
     </Row>
