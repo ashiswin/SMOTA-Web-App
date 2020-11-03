@@ -18,10 +18,12 @@ const App = () => {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <div className='App'>
-          <nav style={{backgroundColor: 'var(--primary)'}}>
-            <a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
-            <a href="#" className="brand-logo">St Mary of the Angels</a>
-          </nav>
+          <div className="navbar-fixed">
+            <nav style={{backgroundColor: 'var(--primary)'}}>
+              <a href="#" data-target="slide-out" className="sidenav-trigger show-on-large"><i className="material-icons">menu</i></a>
+              <a href="#" className="brand-logo">St Mary of the Angels</a>
+            </nav>
+          </div>
           <ul id="slide-out" className="sidenav">
             <li><a className="sidenav-close" href="#!"><i className="material-icons">arrow_back</i></a></li>
             {/*
