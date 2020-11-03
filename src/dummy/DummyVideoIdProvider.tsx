@@ -14,3 +14,8 @@ export const DummyIds: {[index: string]: string[]} = {
     "SwMB3InoedE",
   ],
 }
+
+export const DummyPlaylistIds: {[index: string]: string} = {
+  "holy_mass": "PL3RdGGKrUetCpCMA0PPGCo61HEWp70DL3",
+  "daily_liturgy": "PL3RdGGKrUetDHH1-Gdo-6r1y122kQ-FRg",
+}
