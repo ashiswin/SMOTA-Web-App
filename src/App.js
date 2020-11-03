@@ -2,7 +2,9 @@
 import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
+import smota_logo from './assets/img/smota-logo.png';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { SideNavItem } from 'react-materialize';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
@@ -25,7 +27,13 @@ const App = () => {
             </nav>
           </div>
           <ul id="slide-out" className="sidenav">
-            <li><a className="sidenav-close" href="#!"><i className="material-icons">arrow_back</i></a></li>
+            <li>
+              <a>
+                <i><img src={smota_logo} alt="Saint Mary of the Angels logo" height={36} style={{verticalAlign: "middle"}} /></i>
+                <span style={{verticalAlign: "middle", height: "100%", display: "inline-block"}}>St Mary of the Angels</span>
+              </a>
+            </li>
+            <li><SideNavItem divider /></li>
             {/*
             --- Revive this when user profiles are a thing --- 
             <li>
@@ -39,7 +47,6 @@ const App = () => {
               />
             </li> */}
             <li><Link to="/" className="sidenav-close"><i className="material-icons">home</i> Home</Link></li>
-            <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
             <li className="no-padding">
               <ul className="collapsible collapsible-accordion">
                 <li>
@@ -53,6 +60,7 @@ const App = () => {
                 </li>
               </ul>
             </li>
+            <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
           </ul>
         </div>
         <Switch>
