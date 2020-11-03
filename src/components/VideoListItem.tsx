@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Props {
+export interface VideoDetails {
   id: string,
   title: string,
   date: string,
@@ -12,7 +12,7 @@ function handleClick(url: string) {
   window.open(url);
 }
 
-const VideoListItem: React.FC<Props> = ({ id, title, date, description, thumbnail }) => {
+const VideoListItem: React.FC<VideoDetails> = ({ id, title, date, description, thumbnail }) => {
   return(
     <div className="col s12">
       <div className="card waves-effect" onClick={() => handleClick("https://youtube.com/watch?v=" + id)}>

@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col, Preloader } from "react-materialize";
-import VideoListItem from "../components/VideoListItem";
+import VideoListItem, { VideoDetails } from "../components/VideoListItem";
 import { DummyPlaylistIds } from "../dummy/DummyVideoIdProvider";
 
 interface Props {
   isSundayMass: boolean,
-}
-
-interface VideoDetails {
-  id: string,
-  title: string,
-  date: string,
-  description: string,
-  thumbnail: string,
 }
 
 const API_KEY = "AIzaSyB2P2HY-eKk02NR2qg939I6FcaqYeXuHgM";
