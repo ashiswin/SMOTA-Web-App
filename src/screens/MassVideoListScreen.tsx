@@ -9,7 +9,6 @@ interface Props {
 }
 
 const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
-  console.log(process.env.REACT_APP_YOUTUBE_API_KEY);
   const [videoDetails, setVideoDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
