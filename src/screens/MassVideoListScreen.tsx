@@ -78,6 +78,19 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
             </Row>
         : null
       }
+      {
+        isLoading
+          ? null
+          : <div style={{width: "100%", marginBottom: 16}}>
+              <a 
+                href="#!"
+                onClick={() => window.open(`https://www.youtube.com/playlist?list=${DummyPlaylistIds[isSundayMass ? "holy_mass" : "daily_liturgy"]}`)}
+                className="waves-effect waves-light btn"
+                style={{width: "100%"}}>
+                See All Videos
+              </a>
+            </div>
+      }
     </Container>
   );
 }
