@@ -56,7 +56,11 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
   return (
     <Container>
       <h4>{isSundayMass ? "Holy Mass" : "Daily Liturgy"}</h4>
-      {videoComponents}
+      {
+        isLoading
+          ? null
+          : videoComponents
+      }
       {
         isLoading
           ? <Row>
