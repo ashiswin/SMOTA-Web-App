@@ -60,6 +60,7 @@ const App = () => {
                 </li>
               </ul>
             </li>
+            <li><SideNavItem divider /></li>
             <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
           </ul>
         </div>
