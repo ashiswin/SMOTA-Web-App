@@ -11,7 +11,6 @@ interface Props {
 const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
   console.log(process.env.REACT_APP_YOUTUBE_API_KEY);
   const [videoDetails, setVideoDetails] = useState([]);
-  const [pageToken, setPageToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -37,7 +36,6 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
             })
             .filter((item: VideoDetails) => item);
             setVideoDetails(responseIds);
-            setPageToken(res.data.pageToken ?? "");
             setIsLoading(false);
         })
         .catch(reason => {
@@ -50,7 +48,6 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
   }, [isSundayMass]);
 
   let videoComponents = videoDetails.map((details) => <VideoListItem {...details} />);
-  console.log(pageToken);
 
   return (
     <Container>
