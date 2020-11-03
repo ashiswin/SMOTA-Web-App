@@ -5,11 +5,12 @@ import 'materialize-css/dist/css/materialize.min.css';
 import smota_logo from './assets/img/smota-logo.png';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { SideNavItem } from 'react-materialize';
+import AppUpdateNotification from './components/notifications/AppUpdate';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 
-const App = () => {
+const App = ({ isUpdateAvailable }) => {
   useEffect(() => {
     let sidenav = document.querySelector('#slide-out');
     M.Sidenav.init(sidenav, {});
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
+        <AppUpdateNotification isUpdateAvailable={isUpdateAvailable} />
         <div className='App'>
           <div className="navbar-fixed">
             <nav style={{backgroundColor: 'var(--primary)'}}>
