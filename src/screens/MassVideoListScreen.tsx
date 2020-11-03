@@ -62,7 +62,7 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
               <Col s={4} offset="s4">
                 <Preloader
                   active
-                  color="blue"
+                  color="red"
                   flashing
                 />
               </Col>
