@@ -8,9 +8,8 @@ interface Props {
   isSundayMass: boolean,
 }
 
-const API_KEY = "AIzaSyB2P2HY-eKk02NR2qg939I6FcaqYeXuHgM";
-
 const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
+  console.log(process.env.REACT_APP_YOUTUBE_API_KEY);
   const [videoDetails, setVideoDetails] = useState([]);
   const [pageToken, setPageToken] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +17,7 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
   useEffect(() => {
     const getVideoData = () => {
       let playlist_id = DummyPlaylistIds[isSundayMass ? "holy_mass" : "daily_liturgy"];
-      const requestURL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${playlist_id}&key=${API_KEY}`;
+      const requestURL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${playlist_id}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
       axios.get(requestURL)
         .then(res => {
           const response = res.data.items;
