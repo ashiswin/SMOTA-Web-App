@@ -6,11 +6,12 @@ import smota_logo from './assets/img/smota-logo.png';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { SideNavItem } from 'react-materialize';
 import AppUpdateNotification from './components/notifications/AppUpdate';
+import InstallToHomeScreenNotification from './components/notifications/InstallToHomeScreen';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 
-const App = ({ isUpdateAvailable }) => {
+const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
   useEffect(() => {
     let sidenav = document.querySelector('#slide-out');
     M.Sidenav.init(sidenav, {});
@@ -21,6 +22,7 @@ const App = ({ isUpdateAvailable }) => {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <AppUpdateNotification isUpdateAvailable={isUpdateAvailable} />
+        <InstallToHomeScreenNotification isInstallAvailable={isInstallAvailable} deferredPrompt={deferredPrompt} />
         <div className='App'>
           <div className="navbar-fixed">
             <nav style={{backgroundColor: 'var(--primary)'}}>

@@ -6,6 +6,9 @@ import * as serviceWorker from './serviceWorker';
 
 const AppEntry = () => {
   const [updateAvailable, setIsUpdateAvailable] = useState(false);
+  const [installAvailable, setInstallAvailable] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+
   const config = {
     onUpdate: registration => {
       console.warn('Service worker update available');
@@ -25,9 +28,14 @@ const AppEntry = () => {
 
   useEffect(() => {
     serviceWorker.register(config);
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setInstallAvailable(true);
+    });
   }, [config]);
 
-  return <App isUpdateAvailable={updateAvailable} />;
+  return <App isUpdateAvailable={updateAvailable} isInstallAvailable={installAvailable} deferredPrompt={deferredPrompt} />;
 }
 
 ReactDOM.render(
