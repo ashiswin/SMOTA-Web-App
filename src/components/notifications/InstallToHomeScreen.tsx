@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-materialize';
 
 interface Props {
@@ -6,12 +6,17 @@ interface Props {
   deferredPrompt: { prompt: () => void; },
 }
 
-const installApp = (deferredPrompt: { prompt: () => void; }) => {
-  deferredPrompt.prompt();
-}
-
 const InstallToHomeScreenNotification: React.FC<Props> = ({ isInstallAvailable, deferredPrompt }) => {
-  if (isInstallAvailable) {
+  const [visible, setVisible] = useState(isInstallAvailable);
+  const closePrompt = () => {
+    setVisible(false);
+  };
+  const installApp = () => {
+    deferredPrompt.prompt();
+    closePrompt();
+  }
+
+  if (visible) {
     return (
       <div id="service-worker-update">
         <div style={{backgroundColor: 'var(--primary-dark)', padding: 16, color: 'var(--icons)'}}>
@@ -20,7 +25,12 @@ const InstallToHomeScreenNotification: React.FC<Props> = ({ isInstallAvailable, 
           </div>
           <br />
           <div className='action'>
-            <Button onClick={() => {installApp(deferredPrompt)}} style={{width: '100%'}} className="waves-effect green">Install App</Button>
+            <Button onClick={() => {installApp()}} style={{width: '100%'}} className="waves-effect green">Install App</Button>
+          </div>
+          <div style={{position: 'absolute', top: 8, right: 8, zIndex: 1}}>
+            <a href="#!" onClick={() => closePrompt()} style={{textDecoration: 'none', color: "white"}}>
+              <i className="material-icons">cancel</i>
+            </a>
           </div>
         </div>
       </div>
