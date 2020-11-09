@@ -20,7 +20,7 @@ const InstallToHomeScreenNotification: React.FC<Props> = ({ isInstallAvailable, 
     return (
       <div id="service-worker-update">
         <div style={{backgroundColor: 'var(--primary-dark)', padding: 16, color: 'var(--icons)'}}>
-          <div className='text'>
+          <div className='text' style={{paddingRight: 8}}>
             Install the St Mary's app to your phone for easier access.
           </div>
           <br />
@@ -29,7 +29,7 @@ const InstallToHomeScreenNotification: React.FC<Props> = ({ isInstallAvailable, 
           </div>
           <div style={{position: 'absolute', top: 8, right: 8, zIndex: 1}}>
             <a href="#!" onClick={() => closePrompt()} style={{textDecoration: 'none', color: "white"}}>
-              <i className="material-icons">cancel</i>
+              <i className="material-icons" style={{fontSize: 16}}>cancel</i>
             </a>
           </div>
         </div>

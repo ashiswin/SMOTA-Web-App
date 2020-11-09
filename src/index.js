@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 const AppEntry = () => {
   const [updateAvailable, setIsUpdateAvailable] = useState(false);
-  const [installAvailable, setInstallAvailable] = useState(true);
+  const [installAvailable, setInstallAvailable] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
   const config = {
