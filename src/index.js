@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import UserProvider from './providers/UserProvider';
 
 const AppEntry = () => {
   const [updateAvailable, setIsUpdateAvailable] = useState(false);
@@ -35,7 +36,10 @@ const AppEntry = () => {
     });
   }, [config]);
 
-  return <App isUpdateAvailable={updateAvailable} isInstallAvailable={installAvailable} deferredPrompt={deferredPrompt} />;
+  return (
+    <UserProvider>
+      <App isUpdateAvailable={updateAvailable} isInstallAvailable={installAvailable} deferredPrompt={deferredPrompt} />
+    </UserProvider>);
 }
 
 ReactDOM.render(
