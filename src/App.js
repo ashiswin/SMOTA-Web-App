@@ -10,6 +10,7 @@ import InstallToHomeScreenNotification from './components/notifications/InstallT
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
+const SignUpScreen = lazy(() => import("./screens/SignUpScreen"));
 
 const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
   useEffect(() => {
@@ -77,6 +78,9 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           </Route>
           <Route path="/daily-liturgy">
             <MassVideoListScreen isSundayMass={false} />
+          </Route>
+          <Route path="/signup">
+            <SignUpScreen />
           </Route>
           <Route path="/">
             <HomeScreen />
