@@ -36,7 +36,6 @@ const AppEntry = () => {
     });
   }, [config]);
 
-  console.log(updateAvailable + " " + installAvailable);
   return (
     <UserProvider>
       <App isUpdateAvailable={updateAvailable} isInstallAvailable={installAvailable} deferredPrompt={deferredPrompt} />
