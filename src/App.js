@@ -8,6 +8,7 @@ import { SideNavItem } from 'react-materialize';
 import AppUpdateNotification from './components/notifications/AppUpdate';
 import InstallToHomeScreenNotification from './components/notifications/InstallToHomeScreen';
 import { UserContext } from './providers/UserProvider';
+import { auth } from './firebase';
 import CryptoJS from 'crypto-js';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
@@ -21,6 +22,10 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
     M.Sidenav.init(sidenav, {});
     M.AutoInit();
   });
+
+  const signoutHander = async () => {
+    await auth.signOut();
+  };
 
   return (
     <Router>
@@ -36,7 +41,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           </div>
           <ul id="slide-out" className="sidenav">
             {
-              user !== null
+              user !== null && user !== undefined
                 ? <SideNavItem userView
                     user={{
                       background: 'https://i.pinimg.com/originals/ba/a1/b4/baa1b43d07f737c2b1cb88611f111952.jpg',
@@ -71,6 +76,14 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             </li>
             <SideNavItem divider />
             <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
+            <li>
+              <Link 
+                to={user === null || user === undefined ? "/signin" : "!#"} 
+                onClick={user === null || user === undefined  ? null : signoutHander} 
+                className="sidenav-close">
+                <i className="material-icons">login</i> {user === null || user === undefined  ? "Sign In" : "Sign Out"}
+              </Link>
+            </li>
           </ul>
         </div>
         <Switch>
