@@ -5,7 +5,7 @@ interface Props {
   title: string,
   message: string,
   ctaTitle?: string,
-  ctaOnClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+  ctaOnClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
 }
 
 const HomeScreenInlineNotification: React.FC<Props> = ({ title, message, ctaTitle, ctaOnClick }) => {
