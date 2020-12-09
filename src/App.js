@@ -80,7 +80,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
             <li>
               <Link 
-                to={user === null || user === undefined ? "/signin" : "!#"} 
+                to={user === null || user === undefined ? "/signin" : "#!"} 
                 onClick={user === null || user === undefined  ? null : signoutHander} 
                 className="sidenav-close">
                 <i className="material-icons">login</i> {user === null || user === undefined  ? "Sign In" : "Sign Out"}

@@ -11,7 +11,7 @@ const SuccessMessage: React.FC<Props> = ({ message, visible, onCloseClick }) => 
   return (
     visible
       ? <Row style={style.container}>
-          <Col s={11} style={{ color: "red" }}>
+          <Col s={11} style={{ color: "green" }}>
             {message}
           </Col>
           <Col s={1}>
@@ -26,7 +26,7 @@ const SuccessMessage: React.FC<Props> = ({ message, visible, onCloseClick }) => 
 
 const style = {
   container: {
-    border: "1px solid red",
+    border: "1px solid green",
     borderRadius: 4,
     paddingTop: 8,
     paddingBottom: 8,
