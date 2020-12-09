@@ -8,13 +8,13 @@ const SignUpScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [name, setName] = useState("");
+  const [displayName, setDisplayName] = useState("");
   const [error, setError] = useState("");
   const [errorVisible, setErrorVisible] = useState(false);
 
-  const createUserWithEmailAndPasswordHandler = async (event: React.MouseEvent<HTMLButtonElement>, name: string, email: string, password: string, confirmPassword: string) => {
+  const createUserWithEmailAndPasswordHandler = async (event: React.MouseEvent<HTMLButtonElement>, displayName: string, email: string, password: string, confirmPassword: string) => {
     event.preventDefault();
-    if (name === "") {
+    if (displayName === "") {
       setError("Name is empty");
       setErrorVisible(true);
       return;
@@ -42,12 +42,13 @@ const SignUpScreen = () => {
 
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      generateUserDocument(user, { name });
+      generateUserDocument(user, { displayName });
+      window.location.href = "/";
 
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      setName("");
+      setDisplayName("");
       setError("");
       setErrorVisible(false);
     }
@@ -65,8 +66,8 @@ const SignUpScreen = () => {
       setPassword(value);
     } else if (name === "confirmPassword") {
       setConfirmPassword(value);
-    } else if (name === "name") {
-      setName(value);
+    } else if (name === "displayName") {
+      setDisplayName(value);
     }
   };
 
@@ -83,7 +84,7 @@ const SignUpScreen = () => {
         </Col>
       </Row>
       <ErrorMessage message={error} visible={errorVisible} onCloseClick={() => setErrorVisible(false)} />
-      <TextInput name="name" label="Name" onChange={onChangeHandler} value={name} noLayout />
+      <TextInput name="displayName" label="Name" onChange={onChangeHandler} value={displayName} noLayout />
       <TextInput name="email" label="Email" type="email" onChange={onChangeHandler} value={email} email noLayout />
       <Row style={{ padding: 0, marginTop: -16 }}>
         <Col s={6} style={{ paddingLeft: 0 }}>
@@ -95,7 +96,7 @@ const SignUpScreen = () => {
       </Row>
       <Button
         onClick={(event) => {
-          createUserWithEmailAndPasswordHandler(event, name, email, password, confirmPassword)
+          createUserWithEmailAndPasswordHandler(event, displayName, email, password, confirmPassword)
         }}
         style={{ width: '100%' }}
         className="waves-effect green">
