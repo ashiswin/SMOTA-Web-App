@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row, TextInput } from "react-materialize";
+import { Link } from "react-router-dom";
 import smota_logo from "../assets/img/smota-logo.png";
 import ErrorMessage from "../components/ErrorMessage";
 import { auth } from "../firebase";
@@ -70,14 +71,16 @@ const SignInScreen = () => {
         className="waves-effect green">
         Sign In
       </Button>
-      <Button
-        onClick={(event) => {
-          window.location.href = "/signup";
-        }}
-        style={{ width: '100%', marginTop: 8 }}
-        className="waves-effect">
-        Create an account
-      </Button>
+      <p>
+          Don't have an account?{" "}
+          <Link to="/signup" className="text-blue-500 hover:text-blue-600">
+            Sign up here
+          </Link>{" "}
+          <br />{" "}
+          <Link to = "/passwordReset" className="text-blue-500 hover:text-blue-600">
+            Forgot Password?
+          </Link>
+        </p>
     </Container>
   )
 }
