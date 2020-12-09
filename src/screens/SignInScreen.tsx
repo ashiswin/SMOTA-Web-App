@@ -2,23 +2,16 @@ import React, { useState } from "react";
 import { Button, Col, Container, Row, TextInput } from "react-materialize";
 import smota_logo from "../assets/img/smota-logo.png";
 import ErrorMessage from "../components/ErrorMessage";
-import { auth, generateUserDocument } from "../firebase";
+import { auth } from "../firebase";
 
-const SignUpScreen = () => {
+const SignInScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [displayName, setDisplayName] = useState("");
   const [error, setError] = useState("");
   const [errorVisible, setErrorVisible] = useState(false);
 
-  const createUserWithEmailAndPasswordHandler = async (event: React.MouseEvent<HTMLButtonElement>, displayName: string, email: string, password: string, confirmPassword: string) => {
+  const signInWithEmailAndPasswordHandler = async (event: React.MouseEvent<HTMLButtonElement>, email: string, password: string) => {
     event.preventDefault();
-    if (displayName === "") {
-      setError("Name is empty");
-      setErrorVisible(true);
-      return;
-    }
     if (email === "") {
       setError("Email is empty");
       setErrorVisible(true);
@@ -29,26 +22,13 @@ const SignUpScreen = () => {
       setErrorVisible(true);
       return;
     }
-    if (confirmPassword === "") {
-      setError("Password confirmation is empty");
-      setErrorVisible(true);
-      return;
-    }
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      setErrorVisible(true);
-      return;
-    }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await generateUserDocument(user, { displayName });
+      await auth.signInWithEmailAndPassword(email, password);
       window.location.href = "/";
 
       setEmail("");
       setPassword("");
-      setConfirmPassword("");
-      setDisplayName("");
       setError("");
       setErrorVisible(false);
     }
@@ -64,10 +44,6 @@ const SignUpScreen = () => {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
-    } else if (name === "confirmPassword") {
-      setConfirmPassword(value);
-    } else if (name === "displayName") {
-      setDisplayName(value);
     }
   };
 
@@ -80,30 +56,30 @@ const SignUpScreen = () => {
       </Row>
       <Row style={{ marginTop: -16 }}>
         <Col s={12} style={{ textAlign: "center" }}>
-          <h5>Sign up with St Mary's</h5>
+          <h5>Sign into St Mary's</h5>
         </Col>
       </Row>
       <ErrorMessage message={error} visible={errorVisible} onCloseClick={() => setErrorVisible(false)} />
-      <TextInput name="displayName" label="Name" onChange={onChangeHandler} value={displayName} noLayout />
       <TextInput name="email" label="Email" type="email" onChange={onChangeHandler} value={email} email noLayout />
-      <Row style={{ padding: 0, marginTop: -16 }}>
-        <Col s={6} style={{ paddingLeft: 0 }}>
-          <TextInput name="password" label="Password" onChange={onChangeHandler} value={password} password noLayout />
-        </Col>
-        <Col s={6} style={{ paddingRight: 0 }}>
-          <TextInput name="confirmPassword" label="Confirm Password" onChange={onChangeHandler} value={confirmPassword} password noLayout />
-        </Col>
-      </Row>
+      <TextInput name="password" label="Password" onChange={onChangeHandler} value={password} password noLayout />
       <Button
         onClick={(event) => {
-          createUserWithEmailAndPasswordHandler(event, displayName, email, password, confirmPassword)
+          signInWithEmailAndPasswordHandler(event, email, password)
         }}
         style={{ width: '100%' }}
         className="waves-effect green">
-        Sign Up
+        Sign In
+      </Button>
+      <Button
+        onClick={(event) => {
+          window.location.href = "/signup";
+        }}
+        style={{ width: '100%', marginTop: 8 }}
+        className="waves-effect">
+        Create an account
       </Button>
     </Container>
   )
 }
 
-export default SignUpScreen;
+export default SignInScreen;

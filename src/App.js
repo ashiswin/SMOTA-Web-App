@@ -14,6 +14,7 @@ const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const SignUpScreen = lazy(() => import("./screens/SignUpScreen"));
+const SignInScreen = lazy(() => import("./screens/SignInScreen"));
 
 const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
   const user = useContext(UserContext);
@@ -98,6 +99,9 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           </Route>
           <Route path="/signup">
             <SignUpScreen />
+          </Route>
+          <Route path="/signin">
+            <SignInScreen />
           </Route>
           <Route path="/">
             <HomeScreen />
