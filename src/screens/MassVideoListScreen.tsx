@@ -46,7 +46,7 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
     getVideoData();
   }, [isSundayMass]);
 
-  let videoComponents = videoDetails.map((details) => <VideoListItem {...details} />);
+  let videoComponents = videoDetails.map((details: VideoDetails) => <VideoListItem {...details} key={details.id} />);
 
   return (
     <Container>

@@ -16,7 +16,6 @@ const SignUpScreen = lazy(() => import("./screens/SignUpScreen"));
 
 const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
   const user = useContext(UserContext);
-  console.log(user);
   useEffect(() => {
     let sidenav = document.querySelector('#slide-out');
     M.Sidenav.init(sidenav, {});
@@ -38,16 +37,14 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           <ul id="slide-out" className="sidenav">
             {
               user !== null
-                ? <li>
-                    <SideNavItem userView
-                      user={{
-                        background: 'https://i.pinimg.com/originals/ba/a1/b4/baa1b43d07f737c2b1cb88611f111952.jpg',
-                        image: `https://www.gravatar.com/avatar/${CryptoJS.MD5(user.email)}?d=identicon`,
-                        name: user.displayName,
-                        email: user.email
-                      }}
-                    />
-                  </li>
+                ? <SideNavItem userView
+                    user={{
+                      background: 'https://i.pinimg.com/originals/ba/a1/b4/baa1b43d07f737c2b1cb88611f111952.jpg',
+                      image: `https://www.gravatar.com/avatar/${CryptoJS.MD5(user.email)}?d=identicon`,
+                      name: user.displayName,
+                      email: user.email
+                    }}
+                  />
                 : <>
                     <li>
                       <a>
@@ -55,7 +52,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
                         <span style={{verticalAlign: "middle", height: "100%", display: "inline-block"}}>St Mary of the Angels</span>
                       </a>
                     </li>
-                    <li><SideNavItem divider /></li>
+                    <SideNavItem divider />
                   </>
             }
             <li><Link to="/" className="sidenav-close"><i className="material-icons">home</i> Home</Link></li>
@@ -72,7 +69,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
                 </li>
               </ul>
             </li>
-            <li><SideNavItem divider /></li>
+            <SideNavItem divider />
             <li><Link to="/about" className="sidenav-close"><i className="material-icons">info</i> About</Link></li>
           </ul>
         </div>

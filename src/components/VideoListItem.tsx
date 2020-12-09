@@ -32,7 +32,7 @@ const VideoListItem: React.FC<VideoDetails> = ({ id, title, date, description, t
         <div className="card-content">
           <h5 style={{marginTop: -8}}>{title}</h5>
           <p style={{fontSize: '18px', marginTop: -8, marginBottom: 8, fontFamily: 'Montserrat'}}>{date}</p>
-          <p>{description.split("\n\n")[0].split('\n').map(str => <p>{str}</p>)}</p>
+          <div>{description.split("\n\n")[0].split('\n').map((str, index) => <p key={index}>{str}</p>)}</div>
         </div>
       </div>
     </div>

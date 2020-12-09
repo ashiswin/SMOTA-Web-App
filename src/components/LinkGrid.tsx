@@ -17,10 +17,10 @@ const LinkGrid: React.FC<Props> = ({header, links}) => {
       linkPairs.push(links.slice(i, i + 2));
     }
 
-    let linkComponents = linkPairs.map((pair) => {
+    let linkComponents = linkPairs.map((pair, index) => {
         return(
-          <Row style={{margin: 0}}>
-              <LinkGridItem title={pair[0].title} url={pair[0].url} icon={pair[0].iconName}/>
+          <Row style={{margin: 0}} key={index}>
+              <LinkGridItem title={pair[0].title} url={pair[0].url} icon={pair[0].iconName} key={pair[0].title} />
               {
                 pair.length > 1
                   ? <LinkGridItem  title={pair[1].title} url={pair[1].url} icon={pair[1].iconName}/>
