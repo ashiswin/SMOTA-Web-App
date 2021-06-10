@@ -14,7 +14,7 @@ interface BottomTabProps {
 
 const BottomTab: React.FC<BottomTabProps> = ({title, icon, target, setSelected}) => {
     const history = useHistory();
-    
+
     return (
         <Col style={{
             width: "20%", 
@@ -38,7 +38,7 @@ const BottomTab: React.FC<BottomTabProps> = ({title, icon, target, setSelected})
 }
 
 const BottomTabNavigation: React.FC = () => {
-    const [_, setSelected] = useState("Home");
+    const [, setSelected] = useState("Home");
 
     return (
         <div style={{width: "100%", height: 56, position: "fixed", bottom: 0, boxShadow: "0 0 5px #cccccc", zIndex: 1000, backgroundColor: "white", paddingTop: 4}}>
@@ -52,25 +52,25 @@ const BottomTabNavigation: React.FC = () => {
                 <BottomTab
                     title="Today"
                     icon={faCalendar}
-                    target="/about"
+                    target="/today"
                     setSelected={setSelected}
                 />
                 <BottomTab
                     title="Contact"
                     icon={faEnvelope}
-                    target="/about"
+                    target="/contact"
                     setSelected={setSelected}
                 />
                 <BottomTab
                     title="Give"
                     icon={faHandHoldingHeart}
-                    target="/about"
+                    target="/give"
                     setSelected={setSelected}
                 />
                 <BottomTab
                     title="More"
                     icon={faEllipsisH}
-                    target="/about"
+                    target="/more"
                     setSelected={setSelected}
                 />
             </Row>
