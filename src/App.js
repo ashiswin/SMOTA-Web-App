@@ -10,6 +10,7 @@ import InstallToHomeScreenNotification from './components/notifications/InstallT
 import { UserContext } from './providers/UserProvider';
 import { auth } from './firebase';
 import CryptoJS from 'crypto-js';
+import BottomTabNavigation from './components/BottomTabNavigation';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
@@ -111,6 +112,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             <HomeScreen />
           </Route>
         </Switch>
+        <BottomTabNavigation />
       </Suspense>
     </Router>
   );
