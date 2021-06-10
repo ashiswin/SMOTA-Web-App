@@ -89,6 +89,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             </li>
           </ul>
         </div>
+        <div style={{marginBottom: 56}}>
         <Switch>
           <Route path="/about">
             <AboutScreen />
@@ -112,6 +113,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             <HomeScreen />
           </Route>
         </Switch>
+        </div>
         <BottomTabNavigation />
       </Suspense>
     </Router>
