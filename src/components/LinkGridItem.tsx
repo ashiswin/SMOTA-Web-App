@@ -17,23 +17,21 @@ function handleClick(url: string) {
 
 const LinkGridItem: React.FC<Props> = ({ title, url, icon, image, text }) => (
   <Col s={6} style={{ padding: '0', marginLeft: "0%" }}>
-    <a
-      href="#!"
-      className="waves-effect waves-light btn"
-      style={styles.link}
+    <div
+      className="waves-effect waves-light"
+      style={{...styles.link, flexDirection: "column"}}
       onClick={() => handleClick(url)}>
       <span style={styles.title}>{title}</span>
       <br />
-      <img src={image}></img>
+      <img src={image} />
       <br />
       <span style={styles.text}>{text}</span>
-    </a>
+    </div>
   </Col>
 )
 
 const styles = {
   link: {
-    height: 64,
     backgroundColor: "var(--primary)",
     display: "flex",
     border: "0.005vw solid var(--primary-light)",
