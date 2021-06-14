@@ -3,8 +3,6 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AppUpdateNotification from './components/notifications/AppUpdate';
-import InstallToHomeScreenNotification from './components/notifications/InstallToHomeScreen';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
@@ -22,8 +20,6 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
-        <AppUpdateNotification isUpdateAvailable={isUpdateAvailable} />
-        <InstallToHomeScreenNotification isInstallAvailable={isInstallAvailable} deferredPrompt={deferredPrompt} />
         <Switch>
           <Route path="/about">
             <AboutScreen />
@@ -44,7 +40,10 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             <PasswordResetScreen />
           </Route>
           <Route path="/">
-            <HomeScreen />
+            <HomeScreen 
+              isInstallAvailable={isInstallAvailable} 
+              deferredPrompt={deferredPrompt} 
+              isUpdateAvailable={isUpdateAvailable} />
           </Route>
         </Switch>
       </Suspense>

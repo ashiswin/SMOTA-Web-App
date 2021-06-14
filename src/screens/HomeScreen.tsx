@@ -8,12 +8,22 @@ import BottomTabNavigation from '../components/BottomTabNavigation';
 import { DummyCategories, DummyLinks } from "../dummy/DummyHomeScreenLinkProvider";
 import { Row, Slider, Slide } from "react-materialize";
 
-const HomeScreen: React.FC = () => {
+interface Props {
+  isInstallAvailable: boolean,
+  deferredPrompt: { prompt: () => void; },
+  isUpdateAvailable: boolean,
+}
+
+const HomeScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpdateAvailable}) => {
   let gridComponents = DummyCategories.map((category) => 
     <LinkGrid links={DummyLinks[category]} key={category} />);
   return(
     <>
-      <TitleBar backEnabled={false} />
+      <TitleBar 
+        backEnabled={false}
+        isInstallAvailable={isInstallAvailable}
+        deferredPrompt={deferredPrompt}
+        isUpdateAvailable={isUpdateAvailable} />
       <Row>
         <Slider
           fullscreen={false}

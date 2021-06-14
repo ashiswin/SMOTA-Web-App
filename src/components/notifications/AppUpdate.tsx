@@ -19,7 +19,7 @@ const AppUpdateNotification: React.FC<Props> = ({ isUpdateAvailable }) => {
           </div>
           <br />
           <div className='action'>
-            <Button onClick={refreshApp} style={{width: '100%'}} className="waves-effect green">Restart App</Button>
+            <Button onClick={refreshApp} style={{width: '100%'}} className="waves-effect blue">Restart App</Button>
           </div>
         </div>
       </div>

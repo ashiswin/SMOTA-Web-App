@@ -25,7 +25,7 @@ const InstallToHomeScreenNotification: React.FC<Props> = ({ isInstallAvailable, 
           </div>
           <br />
           <div className='action'>
-            <Button onClick={() => {installApp()}} style={{width: '100%'}} className="waves-effect green">Install App</Button>
+            <Button onClick={() => {installApp()}} style={{width: '100%'}} className="waves-effect blue">Install App</Button>
           </div>
           <div style={{position: 'absolute', top: 8, right: 8, zIndex: 1}}>
             <a href="#!" onClick={() => closePrompt()} style={{textDecoration: 'none', color: "white"}}>
