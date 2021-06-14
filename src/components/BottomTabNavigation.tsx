@@ -41,40 +41,43 @@ const BottomTabNavigation: React.FC = () => {
     const [, setSelected] = useState("Home");
 
     return (
-        <div style={{width: "100%", height: 56, position: "fixed", bottom: 0, boxShadow: "0 0 5px #cccccc", zIndex: 1000, backgroundColor: "white", paddingTop: 4}}>
-            <Row>
-                <BottomTab
-                    title="Home"
-                    icon={faHome}
-                    target="/"
-                    setSelected={setSelected}
-                />
-                <BottomTab
-                    title="Today"
-                    icon={faCalendar}
-                    target="/today"
-                    setSelected={setSelected}
-                />
-                <BottomTab
-                    title="Contact"
-                    icon={faEnvelope}
-                    target="/contact"
-                    setSelected={setSelected}
-                />
-                <BottomTab
-                    title="Give"
-                    icon={faHandHoldingHeart}
-                    target="/give"
-                    setSelected={setSelected}
-                />
-                <BottomTab
-                    title="More"
-                    icon={faEllipsisH}
-                    target="/more"
-                    setSelected={setSelected}
-                />
-            </Row>
-        </div>
+        <>
+            <div style={{width: "100%", height: 56, position: "fixed", bottom: 0, boxShadow: "0 0 5px #cccccc", zIndex: 1000, backgroundColor: "white", paddingTop: 4}}>
+                <Row>
+                    <BottomTab
+                        title="Home"
+                        icon={faHome}
+                        target="/"
+                        setSelected={setSelected}
+                    />
+                    <BottomTab
+                        title="Today"
+                        icon={faCalendar}
+                        target="/today"
+                        setSelected={setSelected}
+                    />
+                    <BottomTab
+                        title="Contact"
+                        icon={faEnvelope}
+                        target="/contact"
+                        setSelected={setSelected}
+                    />
+                    <BottomTab
+                        title="Give"
+                        icon={faHandHoldingHeart}
+                        target="/give"
+                        setSelected={setSelected}
+                    />
+                    <BottomTab
+                        title="More"
+                        icon={faEllipsisH}
+                        target="/more"
+                        setSelected={setSelected}
+                    />
+                </Row>
+            </div>
+            <div style={{marginTop: 56}} />
+        </>
     );
 }
 

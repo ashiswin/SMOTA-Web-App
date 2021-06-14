@@ -3,6 +3,8 @@ import smota_jubotron_1 from "../assets/img/smota-jumbotron.jpg";
 import smota_jubotron_2 from "../assets/img/smota-jumbotron-2.jpg";
 import smota_jubotron_3 from "../assets/img/smota-jumbotron-3.jpg";
 import LinkGrid from "../components/LinkGrid";
+import TitleBar from "../components/TitleBar";
+import BottomTabNavigation from '../components/BottomTabNavigation';
 import { DummyCategories, DummyLinks } from "../dummy/DummyHomeScreenLinkProvider";
 import { Row, Slider, Slide } from "react-materialize";
 
@@ -11,6 +13,7 @@ const HomeScreen: React.FC = () => {
     <LinkGrid links={DummyLinks[category]} key={category} />);
   return(
     <>
+      <TitleBar />
       <Row>
         <Slider
           fullscreen={false}
@@ -28,6 +31,7 @@ const HomeScreen: React.FC = () => {
         </Slider>
       </Row>
       {gridComponents}
+      <BottomTabNavigation />
     </>
   );
 }
