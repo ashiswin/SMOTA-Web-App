@@ -1,4 +1,5 @@
 import smota from "../assets/smota.jpg";
+import image2 from "../assets/img/smota-jumbotron-2.jpg";
 
 export interface Link {
   title: string;
@@ -22,7 +23,7 @@ export const DummyLinks: { [index: string]: Link[] } = {
     {
       title: 'Pew Check In',
       url: 'https://docs.google.com/forms/d/e/1FAIpQLSfJJkhD56UVS3J4t7UgSmwCLu6sEhHWKi-i4tajsUSSn_4Fcg/viewform',
-      image: smota,
+      image: image2,
       text: 'Click here to check into your pew',
     },
     {
