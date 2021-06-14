@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col } from "react-materialize";
+import Vibrant from 'node-vibrant';
 
 interface Props {
   title: string
@@ -12,20 +13,29 @@ function handleClick(url: string) {
   window.open(url);
 }
 
-const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => (
-  <Col s={6} style={{ padding: '0', marginLeft: "0%" }}>
-    <div
-      className="waves-effect waves-light"
-      style={{...styles.link, flexDirection: "column"}}
-      onClick={() => handleClick(url)}>
-      <img src={image} alt={title}/>
-      <br />
-      <div style={{paddingBottom: 8, paddingLeft: 4, paddingRight: 4, marginTop: -4}}>
-        <span style={{...styles.text, textAlign: "center"}}>{text}</span>
+const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
+  const [textBackgroundColor, setTextBackgroundColor] = useState("var(--surface)");
+  const [textColor, setTextColor] = useState("var(--primary-text)");
+  Vibrant.from(image).getPalette()
+    .then((palette) => {
+      setTextBackgroundColor(palette.LightMuted?.hex ?? "var(--surface)");
+      setTextColor(palette.LightMuted?.titleTextColor ?? "var(--primary-text)");
+    });
+  return (
+    <Col s={6} style={{ padding: '0', marginLeft: "0%" }}>
+      <div
+        className="waves-effect waves-light"
+        style={{ ...styles.link, flexDirection: "column" }}
+        onClick={() => handleClick(url)}>
+        <img src={image} alt={title} />
+        <br />
+        <div style={{ paddingBottom: 8, paddingLeft: 4, paddingRight: 4, paddingTop: 8, marginTop: -16, backgroundColor: textBackgroundColor }}>
+          <span style={{ ...styles.text, textAlign: "center", color: textColor }}>{text}</span>
+        </div>
       </div>
-    </div>
-  </Col>
-)
+    </Col>
+  );
+}
 
 const styles = {
   link: {
@@ -41,7 +51,6 @@ const styles = {
   },
   text: {
     fontSize: 12,
-    color: "var(--secondary-text)",
     height: "2em",
     lineHeight: "1em",
     display: "inline-block",
