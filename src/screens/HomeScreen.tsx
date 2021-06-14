@@ -13,7 +13,7 @@ const HomeScreen: React.FC = () => {
     <LinkGrid links={DummyLinks[category]} key={category} />);
   return(
     <>
-      <TitleBar />
+      <TitleBar backEnabled={false} />
       <Row>
         <Slider
           fullscreen={false}
