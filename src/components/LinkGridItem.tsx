@@ -21,8 +21,8 @@ const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
 
   Vibrant.from(image).getPalette()
     .then((palette) => {
-      setTextBackgroundColor(palette.LightMuted?.hex ?? "var(--surface)");
-      setTextColor(palette.LightMuted?.titleTextColor ?? "var(--primary-text)");
+      setTextBackgroundColor(palette.Muted?.hex ?? "var(--surface)");
+      setTextColor(palette.Muted?.titleTextColor ?? "var(--primary-text)");
     });
 
   return (
@@ -30,11 +30,9 @@ const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
       <div
         className="waves-effect waves-light"
         style={{
-          backgroundColor: "var(--surface)",
           display: "flex",
           color: "var(--primary-text)",
           cursor: "pointer",
-          width: '100%',
           lineHeight: '1',
           borderRadius: 12,
           boxShadow: "0 0 5px #cccccc",
