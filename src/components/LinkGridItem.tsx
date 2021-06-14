@@ -35,7 +35,7 @@ const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
           cursor: "pointer",
           lineHeight: '1',
           borderRadius: 12,
-          boxShadow: "0 0 5px #cccccc",
+          boxShadow: "0 0 5px var(--shadow)",
           marginBottom: 12, 
           flexDirection: "column"
         }}

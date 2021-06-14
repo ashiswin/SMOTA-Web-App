@@ -9,7 +9,8 @@
   --secondary-text: #333333;
   --divider: #BDBDBD;
   --icons: #FFFFFF;
-  --surface: #FFFFFF
+  --surface: #FFFFFF;
+  --shadow: #CCCCCC;
 }
 
 body {

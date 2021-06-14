@@ -42,7 +42,7 @@ const BottomTabNavigation: React.FC = () => {
 
     return (
         <>
-            <div style={{width: "100%", height: 56, position: "fixed", bottom: 0, boxShadow: "0 0 5px #cccccc", zIndex: 1000, backgroundColor: "white", paddingTop: 4}}>
+            <div style={{width: "100%", height: 56, position: "fixed", bottom: 0, boxShadow: "0 0 5px var(--shadow)", zIndex: 1000, backgroundColor: "white", paddingTop: 4}}>
                 <Row>
                     <BottomTab
                         title="Home"
