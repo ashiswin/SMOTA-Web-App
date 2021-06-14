@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&&display=swap');
 
 :root {
-  --primary: #795548;
+  --primary: #03C;
   --primary-light: #D7CCC8;
   --primary-dark: #5D4037;
   --accent: #448AFF;
-  --primary-text: #212121;
-  --secondary-text: #757575;
+  --primary-text: #000000;
+  --secondary-text: #333333;
   --divider: #BDBDBD;
   --icons: #FFFFFF;
+  --surface: #FFFFFF
 }
 
 body {

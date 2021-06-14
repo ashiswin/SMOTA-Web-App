@@ -8,7 +8,7 @@ import { Row, Slider, Slide } from "react-materialize";
 
 const HomeScreen: React.FC = () => {
   let gridComponents = DummyCategories.map((category) => 
-    <LinkGrid links={DummyLinks[category]} header={category} key={category} />);
+    <LinkGrid links={DummyLinks[category]} key={category} />);
   return(
     <>
       <Row>

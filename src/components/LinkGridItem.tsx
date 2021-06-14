@@ -1,11 +1,9 @@
 import React from "react";
 import { Col } from "react-materialize";
-import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   title: string
   url: string
-  icon: IconDefinition
   image: string
   text: string
 }
@@ -14,39 +12,40 @@ function handleClick(url: string) {
   window.open(url);
 }
 
-const LinkGridItem: React.FC<Props> = ({ title, url, icon, image, text }) => (
+const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => (
   <Col s={6} style={{ padding: '0', marginLeft: "0%" }}>
     <div
       className="waves-effect waves-light"
       style={{...styles.link, flexDirection: "column"}}
       onClick={() => handleClick(url)}>
-      <span style={styles.title}>{title}</span>
+      <img src={image} alt={title}/>
       <br />
-      <img src={image} alt={title} />
-      <br />
-      <span style={styles.text}>{text}</span>
+      <div style={{padding: 8}}>
+        <span style={{...styles.text, textAlign: "center"}}>{text}</span>
+      </div>
     </div>
   </Col>
 )
 
 const styles = {
   link: {
-    backgroundColor: "var(--primary)",
+    backgroundColor: "var(--surface)",
     display: "flex",
-    border: "0.005vw solid var(--primary-light)",
-    color: "white",
+    color: "var(--primary-text)",
     cursor: "pointer",
     width: '95%',
     lineHeight: '1',
-    marginLeft: "2.5%",
-    borderRadius: 13,
-  },
-  title: {
-    marginTop: 15,
+    borderRadius: 12,
+    boxShadow: "0 0 5px #cccccc",
+    marginBottom: 12,
   },
   text: {
     fontSize: 12,
-    align: "left",
+    color: "var(--secondary-text)",
+    height: "2em",
+    lineHeight: "1em",
+    display: "inline-block",
+    width: "100%",
   },
 };
 
