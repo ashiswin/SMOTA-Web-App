@@ -20,7 +20,7 @@ const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => (
       onClick={() => handleClick(url)}>
       <img src={image} alt={title}/>
       <br />
-      <div style={{padding: 8}}>
+      <div style={{paddingBottom: 8, paddingLeft: 4, paddingRight: 4, marginTop: -4}}>
         <span style={{...styles.text, textAlign: "center"}}>{text}</span>
       </div>
     </div>
