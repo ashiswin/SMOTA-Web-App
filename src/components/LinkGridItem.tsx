@@ -1,6 +1,5 @@
 import React from "react";
 import { Col } from "react-materialize";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
@@ -23,7 +22,7 @@ const LinkGridItem: React.FC<Props> = ({ title, url, icon, image, text }) => (
       onClick={() => handleClick(url)}>
       <span style={styles.title}>{title}</span>
       <br />
-      <img src={image} />
+      <img src={image} alt={title} />
       <br />
       <span style={styles.text}>{text}</span>
     </div>

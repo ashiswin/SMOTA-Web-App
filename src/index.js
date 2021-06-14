@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
+import MetaTags from 'react-meta-tags';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -44,6 +45,9 @@ const AppEntry = () => {
 
 ReactDOM.render(
   <React.StrictMode>
+    <MetaTags>
+      <meta name="theme-color" content="#03C" />
+    </MetaTags>
     <AppEntry />
   </React.StrictMode>,
   document.getElementById('root')
