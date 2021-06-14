@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Col } from "react-materialize";
 import Vibrant from 'node-vibrant';
 
+const TILE_WIDTH = "42vw";
+
 interface Props {
   title: string
   url: string
@@ -24,7 +26,7 @@ const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
     });
 
   return (
-    <Col s={6} style={{ padding: '0', marginLeft: "0%", marginRight: "0%", width: "42vw" }}>
+    <Col s={6} style={{ padding: '0', marginLeft: "0%", marginRight: "0%", width: TILE_WIDTH }}>
       <div
         className="waves-effect waves-light"
         style={{
@@ -40,7 +42,7 @@ const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
           flexDirection: "column"
         }}
         onClick={() => handleClick(url)}>
-        <img style={{objectFit: "cover", width: "42vw", height: "42vw"}} src={image} alt={title} />
+        <img style={{objectFit: "cover", width: TILE_WIDTH, height: TILE_WIDTH}} src={image} alt={title} />
         <br />
         <div style={{
           paddingBottom: 8,
