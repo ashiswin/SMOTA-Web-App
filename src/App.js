@@ -9,6 +9,7 @@ const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const SignUpScreen = lazy(() => import("./screens/SignUpScreen"));
 const SignInScreen = lazy(() => import("./screens/SignInScreen"));
 const PasswordResetScreen = lazy(() => import("./screens/PasswordResetScreen"));
+const TodayScreen = lazy(() => import("./screens/TodayScreen"));
 
 const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
   useEffect(() => {
@@ -38,6 +39,9 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           </Route>
           <Route path="/passwordReset">
             <PasswordResetScreen />
+          </Route>
+          <Route path="/today">
+            <TodayScreen />
           </Route>
           <Route path="/">
             <HomeScreen 

@@ -33,3 +33,7 @@ h2, h3, h4, h5 {
   font-size: 1.2rem !important;
   font-family: 'Montserrat';
 }
+
+#univPageName {
+  margin-top: 0;
+}
