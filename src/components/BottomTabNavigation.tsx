@@ -24,7 +24,7 @@ const BottomTab: React.FC<BottomTabProps> = ({title, icon, target, setSelected})
             color: target === window.location.pathname ? "#1565C0" : "#666666"
         }}>
             <div 
-                style={{width: "100%"}} 
+                style={{width: "100%", whiteSpace: "nowrap"}} 
                 onClick={() => {
                     setSelected(title);
                     history.push(target);
