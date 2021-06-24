@@ -1,5 +1,5 @@
 import { faCalendar, faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import { faEllipsisH, faHandHoldingHeart, faHome, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+import { faBullhorn, faEllipsisH, faHandHoldingHeart, faHome, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Row, Col } from "react-materialize";
@@ -57,8 +57,8 @@ const BottomTabNavigation: React.FC = () => {
                         setSelected={setSelected}
                     />
                     <BottomTab
-                        title="Contact"
-                        icon={faEnvelope}
+                        title="What's On"
+                        icon={faBullhorn}
                         target="/contact"
                         setSelected={setSelected}
                     />
