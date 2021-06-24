@@ -5,7 +5,8 @@ import TitleBar from '../components/TitleBar';
 
 const TodayScreen: React.FC = () => {
     const [content, setContent] = useState("");
-    axios.get("https://smota-backend.herokuapp.com/today").then((response) => {
+    console.log(process.env.REACT_APP_BACKEND_URL);
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/today`).then((response) => {
         setContent(response.data);
     });
     return (
