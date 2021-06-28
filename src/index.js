@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import UserProvider from './providers/UserProvider';
+import PWAPrompt from 'react-ios-pwa-prompt'
 
 const AppEntry = () => {
   const [updateAvailable, setIsUpdateAvailable] = useState(false);
@@ -39,6 +40,7 @@ const AppEntry = () => {
 
   return (
     <UserProvider>
+      <PWAPrompt timesToShow={10} permanentlyHideOnDismiss={false} />
       <App isUpdateAvailable={updateAvailable} isInstallAvailable={installAvailable} deferredPrompt={deferredPrompt} />
     </UserProvider>);
 }
