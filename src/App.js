@@ -4,6 +4,7 @@ import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MediaScreen from './screens/MediaScreen';
+import BulletinScreen from './screens/BulletinScreen';
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const SignUpScreen = lazy(() => import("./screens/SignUpScreen"));
@@ -27,6 +28,12 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           </Route>
           <Route path="/media">
             <MediaScreen 
+              isInstallAvailable={isInstallAvailable} 
+              deferredPrompt={deferredPrompt} 
+              isUpdateAvailable={isUpdateAvailable} />
+          </Route>
+          <Route path="/bulletin">
+            <BulletinScreen 
               isInstallAvailable={isInstallAvailable} 
               deferredPrompt={deferredPrompt} 
               isUpdateAvailable={isUpdateAvailable} />
