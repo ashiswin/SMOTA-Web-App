@@ -15,22 +15,23 @@ const MassVideoListScreen: React.FC<Props> = ({ isSundayMass }) => {
   useEffect(() => {
     const getVideoData = () => {
       let playlist_id = DummyPlaylistIds[isSundayMass ? "holy_mass" : "daily_liturgy"];
-      const requestURL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=${playlist_id}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
+      const requestURL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=${playlist_id}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
       axios.get(requestURL)
         .then(res => {
           const response = res.data.items;
           let responseIds = response
-            .map((item: { snippet: { title: string; resourceId: { videoId: string; }; description: string; thumbnails: { maxres: { url: string; }; }; }; }) => {
+            .map((item: { snippet: { title: string; resourceId: { videoId: string; }; description: string; thumbnails: { maxres: { url: string; }; high: { url: string; }; }; }; }) => {
               if (item.snippet.title === "Private video") {
                 return null;
               }
               let titleParts = item.snippet.title.split(" - ");
+              console.log(item.snippet.title);
               return {
                 id: item.snippet.resourceId.videoId,
                 title: titleParts[1],
                 date: titleParts[2],
                 description: item.snippet.description,
-                thumbnail: item.snippet.thumbnails.maxres.url,
+                thumbnail: item.snippet.thumbnails.maxres?.url ?? item.snippet.thumbnails.high.url,
               };
             })
             .filter((item: VideoDetails) => item);

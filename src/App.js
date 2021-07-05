@@ -3,6 +3,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import React, { lazy, Suspense, useEffect } from "react";
 import 'materialize-css/dist/css/materialize.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MediaScreen from './screens/MediaScreen';
 const MassVideoListScreen = lazy(() => import("./screens/MassVideoListScreen"));
 const AboutScreen = lazy(() => import("./screens/AboutScreen"));
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
@@ -26,7 +27,10 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
             <AboutScreen />
           </Route>
           <Route path="/holy-mass">
-            <MassVideoListScreen isSundayMass={true} />
+            <MediaScreen 
+              isInstallAvailable={isInstallAvailable} 
+              deferredPrompt={deferredPrompt} 
+              isUpdateAvailable={isUpdateAvailable} />
           </Route>
           <Route path="/daily-liturgy">
             <MassVideoListScreen isSundayMass={false} />
