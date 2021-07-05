@@ -59,7 +59,7 @@ const BottomTabNavigation: React.FC = () => {
                     <BottomTab
                         title="What's On"
                         icon={faBullhorn}
-                        target="/contact"
+                        target="/whatson"
                         setSelected={setSelected}
                     />
                     <BottomTab
