@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Row } from "react-materialize";
+import { Container, Row } from "react-materialize";
 import TitleBar from "../components/TitleBar";
 import VideoListItem, { VideoDetails } from "../components/VideoListItem";
 import { DummyPlaylistIds } from "../dummy/DummyVideoIdProvider";
@@ -53,20 +53,46 @@ const MediaScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpd
                 isInstallAvailable={isInstallAvailable}
                 deferredPrompt={deferredPrompt}
                 isUpdateAvailable={isUpdateAvailable} />
-            <Row>
-                {
-                    videoDetails.holy_mass !== null
-                        ? <VideoListItem {...videoDetails.holy_mass} key={videoDetails.holy_mass.id} />
-                        : null
-                }
-            </Row>
-            <Row>
-                {
-                    videoDetails.daily_liturgy !== null
-                        ? <VideoListItem {...videoDetails.daily_liturgy} key={videoDetails.daily_liturgy.id} />
-                        : null
-                }
-            </Row>
+            <Container>
+                <h4>Holy Mass</h4>
+                <Row>
+                    <>
+                        {
+                            videoDetails.holy_mass !== null
+                                ? <VideoListItem {...videoDetails.holy_mass} key={videoDetails.holy_mass.id} />
+                                : null
+                        }
+                        <div style={{width: "100%", marginBottom: 16}}>
+                            <a 
+                                href="#!"
+                                onClick={() => window.open(`https://www.youtube.com/playlist?list=${DummyPlaylistIds["holy_mass"]}`)}
+                                className="waves-effect waves-light btn blue"
+                                style={{width: "100%"}}>
+                                See All Videos
+                            </a>
+                        </div>
+                    </>
+                </Row>
+                <h4>Daily Liturgy</h4>
+                <Row>
+                    <>
+                        {
+                            videoDetails.daily_liturgy !== null
+                                ? <VideoListItem {...videoDetails.daily_liturgy} key={videoDetails.daily_liturgy.id} />
+                                : null
+                        }
+                        <div style={{width: "100%", marginBottom: 16}}>
+                            <a 
+                                href="#!"
+                                onClick={() => window.open(`https://www.youtube.com/playlist?list=${DummyPlaylistIds["daily_liturgy"]}`)}
+                                className="waves-effect waves-light btn blue"
+                                style={{width: "100%"}}>
+                                See All Videos
+                            </a>
+                        </div>
+                    </>
+                </Row>
+            </Container>
         </>
     );
 }
