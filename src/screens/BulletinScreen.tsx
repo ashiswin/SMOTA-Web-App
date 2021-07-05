@@ -20,14 +20,14 @@ const BulletinScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, is
                 deferredPrompt={deferredPrompt} 
                 backEnabled={true}
                 title="Bulletin" />
-            <div style={{width: "100%"}}>
+            <div style={{width: "100%", height: "94vh"}}>
                 <Document
                     file={`${process.env.REACT_APP_BACKEND_URL}/bulletin`}
                     onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
                     {
                         Array.apply(null, Array(numPages))
                         .map((x, i) => i + 1)
-                        .map(page => <Page pageNumber={page} key={page} renderTextLayer={false} renderInteractiveForms={false} renderAnnotationLayer={false}/>)
+                        .map(page => <Page pageNumber={page} key={page} renderTextLayer={false} renderInteractiveForms={false} renderAnnotationLayer={false} scale={0.735}/>)
                     }
                 </Document>
             </div>
