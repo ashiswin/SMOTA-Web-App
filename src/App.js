@@ -26,7 +26,7 @@ const App = ({ isUpdateAvailable, isInstallAvailable, deferredPrompt }) => {
           <Route path="/about">
             <AboutScreen />
           </Route>
-          <Route path="/holy-mass">
+          <Route path="/media">
             <MediaScreen 
               isInstallAvailable={isInstallAvailable} 
               deferredPrompt={deferredPrompt} 

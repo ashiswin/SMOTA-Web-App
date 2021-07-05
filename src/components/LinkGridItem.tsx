@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Col } from "react-materialize";
 import Vibrant from 'node-vibrant';
+import { useHistory } from "react-router-dom";
 
 const TILE_WIDTH = "42vw";
 
@@ -11,13 +12,14 @@ interface Props {
   text: string
 }
 
-function handleClick(url: string) {
-  window.open(url);
-}
-
 const LinkGridItem: React.FC<Props> = ({ title, url, image, text }) => {
   const [textBackgroundColor, setTextBackgroundColor] = useState("var(--surface)");
   const [textColor, setTextColor] = useState("var(--primary-text)");
+  const history = useHistory();
+
+  const handleClick = (url: string) => {
+    history.push(url);
+  }
 
   Vibrant.from(image).getPalette()
     .then((palette) => {

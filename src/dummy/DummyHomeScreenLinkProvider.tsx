@@ -21,6 +21,12 @@ export const DummyLinks: { [index: string]: Link[] } = {
       text: 'Click here to book mass',
     },
     {
+      title: 'Media',
+      url: '/media',
+      image: image2,
+      text: 'Online Mass, Liturgy of the Word, Videos and Photos',
+    },
+    {
       title: 'Pew Check In',
       url: 'https://docs.google.com/forms/d/e/1FAIpQLSfJJkhD56UVS3J4t7UgSmwCLu6sEhHWKi-i4tajsUSSn_4Fcg/viewform',
       image: image2,
