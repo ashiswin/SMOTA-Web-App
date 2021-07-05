@@ -49,6 +49,7 @@ const MediaScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpd
         <>
             <TitleBar 
                 backEnabled={true}
+                title="Media"
                 isInstallAvailable={isInstallAvailable}
                 deferredPrompt={deferredPrompt}
                 isUpdateAvailable={isUpdateAvailable} />
