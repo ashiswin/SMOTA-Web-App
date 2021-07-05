@@ -28,7 +28,7 @@ const BulletinScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, is
                     {
                         Array.apply(null, Array(numPages))
                         .map((x, i) => i + 1)
-                        .map(page => <Page pageNumber={page} key={page}/>)
+                        .map(page => <Page pageNumber={page} key={page} renderTextLayer={false} renderInteractiveForms={false} renderAnnotationLayer={false}/>)
                     }
                 </Document>
             </div>
