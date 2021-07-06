@@ -14,7 +14,7 @@ function handleClick(url: string) {
 
 const VideoListItem: React.FC<VideoDetails> = ({ id, title, date, description, thumbnail }) => {
   return(
-    <div className="col s12">
+    <div className="col s12" style={{padding: 0}}>
       <div className="card waves-effect" onClick={() => handleClick("https://youtube.com/watch?v=" + id)}>
         <div className="card-image">
           <img src={thumbnail} alt="Video thumbnail" />
