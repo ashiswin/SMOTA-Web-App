@@ -12,12 +12,12 @@ interface Props {
 }
 
 const MediaScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpdateAvailable}) => {
-    const [videoDetails, setVideoDetails] = useState<{holy_mass: null | VideoDetails, daily_liturgy: null | VideoDetails}>({holy_mass: null, daily_liturgy: null});
+    const [videoDetails, setVideoDetails] = useState<{holy_mass: VideoDetails[], daily_liturgy: VideoDetails[]}>({holy_mass: [], daily_liturgy: []});
 
     useEffect(() => {
         ["holy_mass", "daily_liturgy"].map((videoType: string) => {
             const playlistId = DummyPlaylistIds[videoType];
-            const requestURL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=2&playlistId=${playlistId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
+            const requestURL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${videoType === "holy_mass" ? 2 : 4}&playlistId=${playlistId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`;
             axios.get(requestURL)
             .then(res => {
                 const response = res.data.items;
@@ -36,7 +36,7 @@ const MediaScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpd
                     };
                 })
                 .filter((item: VideoDetails) => item);
-                setVideoDetails(v => {return {...v, [videoType]: videos[0]}});
+                setVideoDetails(v => {return {...v, [videoType]: videos}});
             })
             .catch(reason => {
                 console.log(reason);
@@ -58,8 +58,8 @@ const MediaScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpd
                 <Row>
                     <>
                         {
-                            videoDetails.holy_mass !== null
-                                ? <VideoListItem {...videoDetails.holy_mass} key={videoDetails.holy_mass.id} />
+                            videoDetails.holy_mass.length !== 0
+                                ? <VideoListItem {...videoDetails.holy_mass[0]} key={videoDetails.holy_mass[0].id} />
                                 : null
                         }
                         <div style={{width: "100%", marginBottom: 16}}>
@@ -74,24 +74,24 @@ const MediaScreen: React.FC<Props> = ({isInstallAvailable, deferredPrompt, isUpd
                     </>
                 </Row>
                 <h4>Daily Liturgy</h4>
-                <Row>
-                    <>
-                        {
-                            videoDetails.daily_liturgy !== null
-                                ? <VideoListItem {...videoDetails.daily_liturgy} key={videoDetails.daily_liturgy.id} />
-                                : null
-                        }
-                        <div style={{width: "100%", marginBottom: 16}}>
-                            <a 
-                                href="#!"
-                                onClick={() => window.open(`https://www.youtube.com/playlist?list=${DummyPlaylistIds["daily_liturgy"]}`)}
-                                className="waves-effect waves-light btn blue"
-                                style={{width: "100%"}}>
-                                See All Videos
-                            </a>
-                        </div>
-                    </>
-                </Row>
+                {
+                    videoDetails.daily_liturgy.slice(0, 3).map(videoDetail => {
+                        return (
+                            <Row>
+                                <VideoListItem {...videoDetail} key={videoDetail.id} />
+                            </Row>
+                        );
+                    })
+                }
+                <div style={{width: "100%", marginBottom: 16}}>
+                    <a 
+                        href="#!"
+                        onClick={() => window.open(`https://www.youtube.com/playlist?list=${DummyPlaylistIds["daily_liturgy"]}`)}
+                        className="waves-effect waves-light btn blue"
+                        style={{width: "100%"}}>
+                        See All Videos
+                    </a>
+                </div>
             </Container>
         </>
     );
